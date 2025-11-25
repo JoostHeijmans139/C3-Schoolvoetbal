@@ -15,11 +15,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Create test user with admin role
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'role' => 'admin',
+        ]);
+
+        // Create referee user
+        User::factory()->create([
+            'name' => 'Jan Scheidsrechter',
+            'email' => 'referee@example.com',
+            'role' => 'referee',
+        ]);
+
+        // Create regular user
+        User::factory()->create([
+            'name' => 'Piet Coach',
+            'email' => 'coach@example.com',
+            'role' => 'user',
+        ]);
+
+        // Seed other tables
+        $this->call([
+            TeamSeeder::class,
+            TournamentSeeder::class,
+            GameSeeder::class,
+            PlayerSeeder::class,
         ]);
     }
 }
