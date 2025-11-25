@@ -15,6 +15,8 @@ class Game extends Model
         'duration_in_minutes',
         'team_1_id',
         'team_2_id',
+        'score_team_1',
+        'score_team_2',
     ];
 
     protected function casts(): array
@@ -32,5 +34,10 @@ class Game extends Model
     public function team2(): BelongsTo
     {
         return $this->belongsTo(Team::class, 'team_2_id');
+    }
+
+    public function tournament(): BelongsTo
+    {
+        return $this->belongsTo(Tournament::class);
     }
 }
