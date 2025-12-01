@@ -1,4 +1,14 @@
 <x-base-layout>
+    @if ($errors->any())
+    <div class="errormessages">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <form action="{{ route('tournaments.store') }}" method="POST">
         @csrf
         <label>Naam toernooi: </label>

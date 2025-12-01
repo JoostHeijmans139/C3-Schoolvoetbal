@@ -24,7 +24,7 @@ class tournamentController extends Controller
             'name' => 'required|string',
             'capacity' => 'required|integer',
             'location' => 'required|string',
-            'start_date' => 'required'
+            'start_date' => 'required|date|after:now'
         ]);
 
         Tournament::create($request->all());
