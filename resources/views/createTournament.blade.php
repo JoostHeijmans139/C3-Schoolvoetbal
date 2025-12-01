@@ -11,7 +11,7 @@
         <input type="text" name="location">
         <br>
         <label>Startdatum: </label>
-        <input type="date" name="start_date">
+        <input type="date" name="start_date" min="{{ date('Y-m-d') }}">
         <br>
 
         <input type="submit" value="Save">
