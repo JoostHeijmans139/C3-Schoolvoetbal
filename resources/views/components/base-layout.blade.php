@@ -19,7 +19,20 @@
         </div>
         <nav>
             <div class="loginButton">
-                <h3>login</h3>
+                @auth
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Uitloggen') }}
+                        </x-dropdown-link>
+                    </form>
+                @endauth
+
+                @guest
+                    <a href="{{ route('login') }}">Inloggen</a>
+                @endguest
             </div>
         </nav>
     </header>
