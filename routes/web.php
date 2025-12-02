@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [tournamentController::class, 'home'])->name('home');
 
+Route::get('/createTournament', [tournamentController::class, 'create'])->name('createTournament');
+Route::post('/tournaments', [tournamentController::class, 'store'])->name('tournaments.store');
+
 Route::get('/login', function () {
     return view('login');
 });
