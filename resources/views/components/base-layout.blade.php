@@ -21,6 +21,9 @@
             <div class="loginButton">
                 <h3>login</h3>
             </div>
+            <div>
+                <a href="{{ route('team.create') }}">team</a>
+            </div>
         </nav>
     </header>
 
