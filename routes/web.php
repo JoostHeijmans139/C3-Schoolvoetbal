@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\tournamentController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/team/create', [TeamController::class, 'create'])->name('team.create');
+Route::post('/team/create', [TeamController::class, 'store'])->name('team.store');
+
+
+require __DIR__ . '/auth.php';
