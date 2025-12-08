@@ -101,4 +101,29 @@ input[type="submit"] {
     padding: 0.8vh 0.8vw;
     color: white;
     border: 1px solid rgb(68, 68, 68);
+/* ===================== Login/ Registration page =====================*/
+.loginForm, .registerForm, .resetForm {
+    margin-top: 20px;
+    margin-left: 200px;
+    padding: 10px;
+}
+
+.nameInput, .emailInput, .passwordInput {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 10px;
+}
+
+.input {
+    padding: 5px;
+}
+
+.formButton {
+    margin: 10px;
+    padding: 5px 15px;
+}
+
+.formText, .forgotPassword, .registerAccount {
+    padding: 10px;
 }

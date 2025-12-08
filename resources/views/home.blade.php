@@ -21,8 +21,15 @@
         </div>
 
         <div class="options">
+            <br>
             <p>Voeg Team Toe</p>
+            <br>
             <p>Meedoen aan Wedstrijd</p>
+            <br>
+            <a href="{{ route('createTournament') }}">Toernooi Aanmaken</a>
+            <br>
+            <br>
             <p>Uitloggen</p>
+            <br>
         </div>
 </x-base-layout>
