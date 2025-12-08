@@ -29,6 +29,31 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "name" => "required|string",
+            "location" => "required|string",
+            "players" => "required|array",
+            "players.*" => "required|array",
+            "players.*.name" => "required|string",
+            "players.*.shirt_number" => "required|integer|min:1",
+        ]);
+
+        $team = new Team();
+        $team->name = $request->name;
+        $team->location = $request->location;
+        $team->user_id = 1;
+
+        $team->save();
+
+        $players = $request->players;
+
+        foreach ($players as &$player) {
+            $player['team_id'] = $team->id;
+        }
+
+        Player::insert($players);
+
+        return redirect()->route("home");
     }
 
     /**
