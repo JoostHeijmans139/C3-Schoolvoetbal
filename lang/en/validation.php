@@ -181,6 +181,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'players.*.name' => [
+            'required' => 'Playername is required for all players.'
+        ],
+        'players.*.shirt_number' => [
+            'required' => 'Shirt number is required for all players.'
+        ]
     ],
 
     /*

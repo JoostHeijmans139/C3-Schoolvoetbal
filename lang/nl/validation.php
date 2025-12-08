@@ -177,6 +177,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'players.*.name' => [
+            'required' => 'Spelernaam is verplicht voor alle spelers.'
+        ],
+        'players.*.shirt_number' => [
+            'required' => 'Rugnummer is verplicht voor alle spelers.'
+        ]
     ],
 
     /*
