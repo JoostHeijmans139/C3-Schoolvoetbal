@@ -34,6 +34,9 @@
                     <a href="{{ route('login') }}">Inloggen</a>
                 @endguest
             </div>
+            <div>
+                <a href="{{ route('team.create') }}">team</a>
+            </div>
         </nav>
     </header>
 
