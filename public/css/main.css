@@ -101,6 +101,7 @@ input[type="submit"] {
     padding: 0.8vh 0.8vw;
     color: white;
     border: 1px solid rgb(68, 68, 68);
+}
 /* ===================== Login/ Registration page =====================*/
 .loginForm, .registerForm, .resetForm {
     margin-top: 20px;
