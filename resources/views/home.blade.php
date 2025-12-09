@@ -26,7 +26,7 @@
         <br>
         <p>Meedoen aan Wedstrijd</p>
         <br>
-        <a href="{{ route('createTournament') }}">Toernooi Aanmaken</a>
+        <a href="{{ route('tournaments.create') }}">Toernooi Aanmaken</a>
         <br>
         <br>
         <p>Uitloggen</p>
