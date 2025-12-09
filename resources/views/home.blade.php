@@ -13,7 +13,7 @@
                             <td>{{ $tournament->name }}</td>
                             <td>{{ $tournament->capacity }}</td>
                             <td>{{ $tournament->location }}</td>
-                            <td>{{ $tournament->start_date }}</td>
+                            <td>{{ $tournament->start_date->format('j-n-Y') }}</td>
                         </tr>
                     @endforeach
                 </tbody>
