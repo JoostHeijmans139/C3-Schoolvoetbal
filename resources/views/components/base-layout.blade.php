@@ -28,6 +28,10 @@
                             {{ __('Uitloggen') }}
                         </x-dropdown-link>
                     </form>
+
+                    @if (Auth::user()->role == "admin")
+                        <a href="route('dashboard')">Dashboard</a>
+                    @endif
                 @endauth
 
                 @guest
