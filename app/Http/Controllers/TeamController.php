@@ -35,7 +35,7 @@ class TeamController extends Controller
             "players" => "required|array",
             "players.*" => "required|array",
             "players.*.name" => "required|string",
-            "players.*.shirt_number" => "required|integer|min:1",
+            "players.*.shirt_number" => "required|integer|min:1|max:99",
         ]);
 
         $team = new Team();
