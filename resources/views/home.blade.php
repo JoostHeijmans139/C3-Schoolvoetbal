@@ -22,7 +22,7 @@
 
     <div class="options">
         <br>
-        <p>Voeg Team Toe</p>
+        <a href="{{ route('team.create') }}">Voeg team toe</a>
         <br>
         <p>Meedoen aan Wedstrijd</p>
         <br>
