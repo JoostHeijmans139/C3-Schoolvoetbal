@@ -128,3 +128,20 @@ input[type="submit"] {
 .formText, .forgotPassword, .registerAccount {
     padding: 10px;
 }
+
+/* ===================== Homepage ===================== */
+
+.homepage {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.options {
+    text-align: center;
+}
+
+.homepage table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}

@@ -1,5 +1,5 @@
 <x-base-layout>
-        <div class="table">
+    <div class="homepage">
             <table>
                 <thead>
                     <th>naam</th>
@@ -18,11 +18,11 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
 
         <div class="options">
             <br>
-            <p>Voeg Team Toe</p>
+            <a href="{{ route('team.create') }}">Team Aanmaken</a>
+            <br>
             <br>
             <p>Meedoen aan Wedstrijd</p>
             <br>
@@ -32,4 +32,5 @@
             <p>Uitloggen</p>
             <br>
         </div>
+    </div>
 </x-base-layout>
