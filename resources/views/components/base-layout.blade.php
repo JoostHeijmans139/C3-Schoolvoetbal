@@ -15,7 +15,7 @@
 
     <header>
         <div class="headerLogo">
-            <p>placeholder</p>
+            <a href="/">placeholder</a>
         </div>
         <nav>
             <div class="loginButton">
