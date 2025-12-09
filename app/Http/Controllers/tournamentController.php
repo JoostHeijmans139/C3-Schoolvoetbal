@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tournament;
 use Illuminate\Http\Request;
 
-class tournamentController extends Controller
+class TournamentController extends Controller
 {
     public function home()
     {
