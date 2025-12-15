@@ -81,6 +81,5 @@ function NewItem() {
 }
 
 function DeleteThis(e) {
-    console.log(e.target);
     e.target.parentNode.parentNode.remove();
 }
