@@ -13,7 +13,7 @@
         <div>{{ $message }}</div>
         @enderror
         <div class="formGroup">
-            <label for="location">Plaats</label>
+            <label for="location">Locatie</label>
             <input type="text" id="location" name="location" value="{{ old('location') }}">
         </div>
         @error("players")
