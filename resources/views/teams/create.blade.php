@@ -16,6 +16,9 @@
             <label for="location">Plaats</label>
             <input type="text" id="location" name="location" value="{{ old('location') }}">
         </div>
+        @error("players")
+        <div>{{ $message }}</div>
+        @enderror
         @error("players.*")
         <div>{{ $message }}</div>
         @enderror
