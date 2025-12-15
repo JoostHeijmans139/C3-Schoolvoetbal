@@ -81,5 +81,6 @@ function NewItem() {
 }
 
 function DeleteThis(e) {
+    playerCount--;
     e.target.parentNode.parentNode.remove();
 }
