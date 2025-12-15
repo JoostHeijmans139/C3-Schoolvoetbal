@@ -60,6 +60,7 @@ function NewItem() {
         input.setAttribute("type", fields[i][2]);
         input.setAttribute("name", "    players[" + playerCount + "][" + fields[i][0] + "]");
         input.setAttribute("placeholder", fields[i][1]);
+        input.setAttribute("required", "")
 
         if (fields[i][2] == "button") {
             input.setAttribute("value", fields[i][1])
