@@ -7,7 +7,7 @@
         @enderror
         <div class="formGroup">
             <label for="name">Teamnaam</label>
-            <input type="text" id="name" name="name" value="{{ old('name') }}">
+            <input type="text" id="teamname" name="teamname" value="{{ old('teamname') }}">
         </div>
         @error("location")
         <div>{{ $message }}</div>
