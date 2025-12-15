@@ -30,7 +30,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required|string",
+            "teamname" => "required|string",
             "location" => "required|string",
             "players" => "required|array",
             "players.*" => "required|array",
@@ -39,7 +39,7 @@ class TeamController extends Controller
         ]);
 
         $team = new Team();
-        $team->name = $request->name;
+        $team->name = $request->teamname;
         $team->location = $request->location;
         $team->user_id = 1;
 
