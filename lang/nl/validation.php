@@ -178,11 +178,14 @@ return [
             'rule-name' => 'custom-message',
         ],
         'players.*.name' => [
-            'required' => 'Spelernaam is verplicht voor alle spelers.'
+            'required' => 'Spelernaam is verplicht.'
         ],
         'players.*.shirt_number' => [
-            'required' => 'Rugnummer is verplicht voor alle spelers.'
-        ]
+            'required' => 'Rugnummer is verplicht.'
+        ],
+        'players' =>[
+            'required' => 'Het team moet spelers hebben.'
+        ],
     ],
 
     /*
@@ -198,6 +201,7 @@ return [
 
     'attributes' => [
         'name' => 'naam',
+        'teamname' => 'team naam',
         'capacity' => 'capaciteit',
         'location' => 'locatie',
         'start_date' => 'startdatum',
