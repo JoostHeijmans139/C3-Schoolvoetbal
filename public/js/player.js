@@ -84,3 +84,7 @@ function DeleteThis(e) {
     playerCount--;
     e.target.parentNode.parentNode.remove();
 }
+
+function SetPlayercount(){
+    playerCount = document.getElementById("players").dataset.count;
+}
