@@ -20,17 +20,9 @@
             </table>
 
         <div class="options">
-            <br>
             <a href="{{ route('team.create') }}">Team Aanmaken</a>
-            <br>
-            <br>
             <p>Meedoen aan Wedstrijd</p>
-            <br>
             <a href="{{ route('createTournament') }}">Toernooi Aanmaken</a>
-            <br>
-            <br>
-            <p>Uitloggen</p>
-            <br>
         </div>
     </div>
 </x-base-layout>
