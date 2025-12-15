@@ -21,7 +21,7 @@
         @enderror
         <table>
             <thead>
-                <th><button id="itemButton" type="button">+</button></th>
+                <th><button id="itemButton" onclick="NewItem()" type="button">+</button></th>
                 <th>Naam</th>
                 <th>rugnummer</th>
             </thead>
@@ -31,5 +31,5 @@
         <input type="submit" value="Team aanmaken">
     </form>
 
-    <script src="{{ asset('js/player.js') }}" onload="OnLoad()"></script>
+    <script src="{{ asset('js/player.js') }}" onload="NewItem()"></script>
 </x-base-layout>
