@@ -9,7 +9,7 @@
             @foreach ($teams as $team)
                 <tr>
                     <td>{{$team->name}}</td>
-                    <td><a href="{{ route('team.edit', $team->id) }}">hi</a></td>
+                    <td><a href="{{ route('team.edit', $team->id) }}">Edit</a></td>
                 </tr>
             @endforeach
         </tbody>
