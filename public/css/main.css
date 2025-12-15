@@ -10,14 +10,19 @@ body {
 }
 
 header {
-    background-color: blue;
-    height: 96px;
+    background-color: rgb(77, 77, 207);
+    height: 65px;
     display: flex;
     align-items: center;
 }
 
 .headerLogo {
     margin: 48px;
+}
+
+.logo {
+    margin-top: 2px;
+    height: 50px;
 }
 
 nav {
@@ -27,14 +32,23 @@ nav {
     margin: 12px;
 }
 
+.loginButton {
+    background-color: white;
+    border: 1px solid black;
+    padding: 8px 50px;
+    margin: 12px 256px 12px 12px;
+}
+
+.loginText {
+    color: black;
+    text-decoration: none;
+}
+
 main {
     margin: 2vh 0.5vw;
 }
 
-.loginButton {
-    margin: 12px 256px 12px 12px;
-}
-
+/* ===================== Team creation page =====================*/
 .createTeamForm {
     background-color: rgb(112, 195, 255);
     min-height: 65vh;
@@ -102,6 +116,7 @@ input[type="submit"] {
     color: white;
     border: 1px solid rgb(68, 68, 68);
 }
+
 /* ===================== Login/ Registration page =====================*/
 .loginForm, .registerForm, .resetForm {
     margin-top: 20px;

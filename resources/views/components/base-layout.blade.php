@@ -15,14 +15,14 @@
 
     <header>
         <div class="headerLogo">
-            <a href="/">placeholder</a>
+            <a href="/"><img src="{{ asset('img/logo.png') }}" class="logo"></a>
         </div>
         <nav>
             <div class="loginButton">
                 @auth
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <x-dropdown-link :href="route('logout')"
+                        <x-dropdown-link :href="route('logout')" class="loginText"
                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('Uitloggen') }}
@@ -31,7 +31,7 @@
                 @endauth
 
                 @guest
-                    <a href="{{ route('login') }}">Inloggen</a>
+                    <a href="{{ route('login') }}" class="loginText">Inloggen</a>
                 @endguest
             </div>
         </nav>
