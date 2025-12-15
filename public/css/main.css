@@ -143,3 +143,34 @@ input[type="submit"] {
 .formText, .forgotPassword, .registerAccount {
     padding: 10px;
 }
+
+/* ===================== Homepage ===================== */
+
+.homepage {
+    display: grid;
+    grid-template-columns: 80% 20%;
+
+}
+
+.options {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    text-align: center;
+    width: 70%;
+    margin-left:15%;
+}
+
+.homepage table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.options p, .options a {
+    color: whitesmoke;
+    text-decoration:none;
+    background: rgb(77, 77, 207);
+    padding: 10px 0px 10px 0px;
+    margin-top: 10px;
+}
