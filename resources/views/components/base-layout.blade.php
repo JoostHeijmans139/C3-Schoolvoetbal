@@ -30,7 +30,7 @@
                     </form>
 
                     @if (Auth::user()->role == "admin")
-                        <a href="route('dashboard')">Dashboard</a>
+                        <a href="{{ route('dashboard.teams') }}">Dashboard</a>
                     @endif
                 @endauth
 
