@@ -69,7 +69,9 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $team = Team::findOrFail($id);
+        $players = $team->players()->get();
+        return view('teams.edit')->with("team", $team)->with("players", $players);
     }
 
     /**
