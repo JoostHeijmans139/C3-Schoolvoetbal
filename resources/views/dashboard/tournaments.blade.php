@@ -16,7 +16,7 @@
                             <td>{{ $tournament->name }}</td>
                             <td>{{ $tournament->start_date->format('j-n-Y') }}</td>
                             <td>{{ $tournament->location }}</td>
-                            <td><a href="{{ route('dashboard.tournamentDetails', $tournament->id) }}">View</a></td>
+                            <td><a href="{{ route('dashboard.tournamentDetails', $tournament->id) }}" class="view">View</a></td>
                         </tr>
                     @endforeach
                 </tbody>

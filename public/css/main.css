@@ -113,10 +113,11 @@ th button {
 
 input[type="submit"] {
     background-color: rgb(77, 77, 207);
+    border: 1px solid rgb(0, 0, 0);
     font-size: 1.2rem;
-    padding: 0.8vh 0.8vw;
     color: white;
-    border: 1px solid rgb(68, 68, 68);
+    padding: 0.8vh 0.8vw;
+    cursor: pointer;
 }
 
 #itemButton {
@@ -190,6 +191,38 @@ input[type="submit"] {
     }
 }
 
-.teamsTable {
-    margin-top: 20px;
+.edit, .view {
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.teamsTable, .gridItem {
+    margin-top: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gridItem h2 {
+    font-weight: normal;
+}
+
+.gridItem p {
+    margin-bottom: 20px;
+}
+
+.delete {
+    background-color: white !important;
+    border: none !important;
+    color: black !important;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
