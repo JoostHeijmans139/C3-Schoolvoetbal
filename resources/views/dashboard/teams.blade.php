@@ -1,9 +1,8 @@
 <x-base-layout>
     <h1>Admin panel</h1>
     <div class="backgroundColor">
-
         <a href="{{ route('dashboard.teams') }}" class="adminButtons">Teams</a>
-        <a href="" class="adminButtons">Toernooi</a>
+        <a href="{{ route('dashboard.tournaments') }}" class="adminButtons">Toernooi</a>
         <table class="teamsTable">
             <thead>
                 <th>Naam</th>

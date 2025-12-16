@@ -21,7 +21,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
     Route::put('/team/edit/{id}', [TeamController::class, 'update'])->name('team.update');
 
-    Route::get('/dashboard/teams', [DashboardController::class, 'teams'])->name('dashboard.teams')->middleware("admin");
+    Route::middleware('admin')->group(function () {
+        Route::get('/dashboard/teams', [DashboardController::class, 'teams'])->name('dashboard.teams');
+        Route::get('/dashboard/tournaments', [TournamentController::class, 'tournaments'])->name('dashboard.tournaments');
+        Route::get('/dashboard/tournamentDetails/{id}', [TournamentController::class, 'show'])->name('dashboard.tournamentDetails');
+        Route::delete('/tournaments/{tournament}/teams/{team}', [TournamentController::class, 'removeTeam'])->name('tournament.teams.remove');
+    });
 });
 
 require __DIR__ . '/auth.php';

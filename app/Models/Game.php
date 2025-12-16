@@ -19,12 +19,9 @@ class Game extends Model
         'score_team_2',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'start' => 'datetime',
-        ];
-    }
+    protected $casts = [
+        'start' => 'datetime',
+    ];
 
     public function team1(): BelongsTo
     {

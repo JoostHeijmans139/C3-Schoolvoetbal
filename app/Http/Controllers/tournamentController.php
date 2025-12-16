@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Tournament;
 use Illuminate\Http\Request;
+use App\Models\Team;
 
 class TournamentController extends Controller
 {
-    public function home()
+    public function tournaments()
     {
         $tournaments = Tournament::all();
-        return view ('home')->with('tournaments', $tournaments);
+        return view ('dashboard.tournaments')->with('tournaments', $tournaments);
     }
 
     public function create()
@@ -29,6 +30,20 @@ class TournamentController extends Controller
 
         Tournament::create($request->all());
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard.tournament');
+    }
+
+    public function show(string $id)
+    {
+        $tournament = Tournament::findOrFail($id);
+        $tournament->load('teams');
+
+        return view('dashboard.tournamentDetails', compact('tournament'));
+    }
+
+    public function removeTeam(Tournament $tournament, Team $team)
+    {
+        $tournament->teams()->detach($team->id);
+        return redirect()->back();
     }
 }

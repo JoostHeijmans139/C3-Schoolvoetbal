@@ -6,6 +6,7 @@ use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
+
 class TeamController extends Controller
 {
     /**

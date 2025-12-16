@@ -40,6 +40,6 @@ class Team extends Model
 
     public function tournaments(): BelongsToMany
     {
-        return $this->belongsToMany(Tournament::class);
+        return $this->belongsToMany(Tournament::class, 'tournamentteams');
     }
 }
