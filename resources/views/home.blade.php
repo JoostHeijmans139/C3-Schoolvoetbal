@@ -1,28 +1,27 @@
 <x-base-layout>
-    <div class="homepage">
-            <table>
+    <h1>Aankomende wedstrijden</h1>
+    <div class="backgroundColor">
+        <a href="{{ route('team.create') }}" class="adminButtons">Eigen team aanmaken</a>
+
+            <table class="teamsTable">
                 <thead>
-                    <th>naam</th>
-                    <th>capaciteit</th>
-                    <th>locatie</th>
-                    <th>start datum</th>
+                    <th>Locatie</th>
+                    <th>Tijd</th>
+                    <th>Datum</th>
+                    <th>Team 1</th>
+                    <th>Team 2</th>
                 </thead>
                 <tbody>
-                    @foreach ($tournaments as $tournament)
+                    @foreach ($games as $game)
                         <tr>
-                            <td>{{ $tournament->name }}</td>
-                            <td>{{ $tournament->capacity }}</td>
-                            <td>{{ $tournament->location }}</td>
-                            <td>{{ $tournament->start_date->format('j-n-Y') }}</td>
+                            <td></td>
+                            <td>{{ $game->start->format('H:i') }}</td>
+                            <td>{{ $game->start->format('j-n-Y') }}</td>
+                            <td>{{ $game->team1()->get()[0]->name }}</td>
+                            <td>{{ $game->team2()->get()[0]->name }}</td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-
-        <div class="options">
-            <a href="{{ route('team.create') }}">Team Aanmaken</a>
-            <p>Meedoen aan Wedstrijd</p>
-            <a href="{{ route('createTournament') }}">Toernooi Aanmaken</a>
-        </div>
     </div>
 </x-base-layout>

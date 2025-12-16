@@ -4,9 +4,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TournamentController;
+use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [TournamentController::class, 'home'])->name('home');
+Route::get('/', [GameController::class, 'home'])->name('games');
 
 Route::get('/dashboard/tournaments/create', [TournamentController::class, 'create'])->name('dashboard.createTournament');
 Route::post('/tournaments', [TournamentController::class, 'store'])->name('tournaments.store');
