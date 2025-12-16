@@ -2,6 +2,7 @@
     <h1>Team aanmaken</h1>
     <form class="backgroundColor" action="{{ route('team.store') }}" method="POST">
         @csrf
+
         @error("teamname")
         <div>{{ $message }}</div>
         @enderror
@@ -9,6 +10,7 @@
             <label for="name">Teamnaam</label>
             <input type="text" id="teamname" name="teamname" value="{{ old('teamname') }}">
         </div>
+
         @error("location")
         <div>{{ $message }}</div>
         @enderror
@@ -16,6 +18,7 @@
             <label for="location">Locatie</label>
             <input type="text" id="location" name="location" value="{{ old('location') }}">
         </div>
+
         @error("players")
         <div>{{ $message }}</div>
         @enderror

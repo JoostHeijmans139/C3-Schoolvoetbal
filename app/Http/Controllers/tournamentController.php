@@ -16,7 +16,7 @@ class TournamentController extends Controller
 
     public function create()
     {
-        return view('createTournament');
+        return view('dashboard.createTournament');
     }
 
     public function store(Request $request)

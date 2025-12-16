@@ -3,7 +3,11 @@
     <div class="backgroundColor">
         <a href="{{ route('dashboard.teams') }}" class="adminButtons">Teams</a>
         <a href="{{ route('dashboard.tournaments') }}" class="adminButtons">Toernooi</a>
-            <table class="teamsTable">
+
+        <div class="newTournament">
+            <a href="{{ route('dashboard.createTournament') }}" class="tournamentButton">Nieuw toernooi</a>
+        </div>
+            <table>
                 <thead>
                     <th>Toernooi</th>
                     <th>Datum</th>

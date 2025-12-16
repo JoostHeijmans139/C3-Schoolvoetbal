@@ -1,8 +1,9 @@
 <x-base-layout>
-    <h1>Team editen</h1>
+    <h1>Team bewerken</h1>
     <form class="backgroundColor" action="{{ route('team.update', $team->id) }}" method="POST">
         @csrf
         @method("PUT")
+
         @error("teamname")
         <div>{{ $message }}</div>
         @enderror
@@ -10,6 +11,7 @@
             <label for="name">Teamnaam</label>
             <input type="text" id="teamname" name="teamname" value="{{ $team->name }}">
         </div>
+
         @error("location")
         <div>{{ $message }}</div>
         @enderror
@@ -17,9 +19,11 @@
             <label for="location">Locatie</label>
             <input type="text" id="location" name="location" value="{{ $team->location }}">
         </div>
+
         @error("players")
         <div>{{ $message }}</div>
         @enderror
+
         @error("players.*")
         <div>{{ $message }}</div>
         @enderror
@@ -37,7 +41,7 @@
                         <td><input class="player-input" type="text" name="players[{{$i}}][name]" id="name" value="{{ $players[$i]->name }}" required></td>
                         <td><input class="player-input" type="number" name="players[{{$i}}][shirt_number]" id="shirt_number" value="{{ $players[$i]->shirt_number }}" required></td>
                     </tr>
-                    @endfor
+                @endfor
             </tbody>
         </table>
         <input type="submit" value="Team aanpassen">

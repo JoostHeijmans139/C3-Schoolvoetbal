@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TournamentController::class, 'home'])->name('home');
 
-Route::get('/tournaments/create', [TournamentController::class, 'create'])->name('createTournament');
+Route::get('/dashboard/tournaments/create', [TournamentController::class, 'create'])->name('dashboard.createTournament');
 Route::post('/tournaments', [TournamentController::class, 'store'])->name('tournaments.store');
 
 Route::middleware('auth')->group(function () {
