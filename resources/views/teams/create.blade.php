@@ -1,6 +1,6 @@
 <x-base-layout>
     <h1>Team aanmaken</h1>
-    <form class="createTeamForm backgroundColor" action="{{ route('team.store') }}" method="POST">
+    <form class="backgroundColor" action="{{ route('team.store') }}" method="POST">
         @csrf
         @error("teamname")
         <div>{{ $message }}</div>

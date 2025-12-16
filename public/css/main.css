@@ -54,8 +54,8 @@ main {
     padding: 5vh 3vw;
 }
 
-/* ===================== Team creation page =====================*/
-.createTeamForm table {
+/* ===================== Main table css =====================*/
+table {
     width: 80%;
     margin-bottom: 3vh;
     background-color: white;
@@ -63,27 +63,30 @@ main {
     border-collapse: collapse;
 }
 
-.createTeamForm thead {
+thead {
     background-color: rgb(77, 77, 207);
     color: white;
 }
 
-.createTeamForm tbody {
-    color: white;
+tbody {
+    color: black;
+    text-align: center;
 }
 
-.createTeamForm th {
-    font-weight: normal;
+th {
     border: 1px solid rgb(0, 0, 0);
+    font-weight: normal;
+    padding: 2px;
 }
 
-.createTeamForm th,
+th,
 td {
     font-size: 1.5rem;
 }
 
-.createTeamForm td {
+td {
     border: 1px solid rgb(181, 181, 181);
+    padding: 2px;
 }
 
 td input,
@@ -95,12 +98,7 @@ th button {
     font-size: 1.2rem;
 }
 
-#itemButton {
-    height: 5vh;
-    width: 0.8vw;
-    cursor: pointer;
-}
-
+/* ===================== Main form css =====================*/
 .formGroup {
     display: flex;
     justify-content: space-between;
@@ -115,6 +113,12 @@ input[type="submit"] {
     padding: 0.8vh 0.8vw;
     color: white;
     border: 1px solid rgb(68, 68, 68);
+}
+
+#itemButton {
+    height: 5vh;
+    width: 0.8vw;
+    cursor: pointer;
 }
 
 /* ===================== Login/ Registration page =====================*/
@@ -159,12 +163,6 @@ input[type="submit"] {
     text-align: center;
     width: 70%;
     margin-left:15%;
-}
-
-.homepage table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
 }
 
 .options p, .options a {
