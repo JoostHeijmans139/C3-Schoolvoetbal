@@ -20,7 +20,7 @@
             <div class="gridItem">
                 <table>
                     <thead>
-                        <th>Team naam</th>
+                        <th>Teams</th>
                         <th></th>
                     </thead>
                     <tbody>

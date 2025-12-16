@@ -5,7 +5,7 @@
         <a href="{{ route('dashboard.tournaments') }}" class="adminButtons">Toernooi</a>
             <table class="teamsTable">
                 <thead>
-                    <th>Toernooi naam</th>
+                    <th>Toernooi</th>
                     <th>Datum</th>
                     <th>Locatie</th>
                     <th></th>
