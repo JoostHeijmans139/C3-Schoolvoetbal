@@ -1,6 +1,6 @@
 <x-base-layout>
     <h1>Team editen</h1>
-    <form class="createTeamForm" action="{{ route('team.update', $team->id) }}" method="POST">
+    <form class="createTeamForm backgroundColor" action="{{ route('team.update', $team->id) }}" method="POST">
         @csrf
         @method("PUT")
         @error("teamname")
