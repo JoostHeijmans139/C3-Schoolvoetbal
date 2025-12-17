@@ -54,7 +54,7 @@ class TeamController extends Controller
 
         Player::insert($players);
 
-        return redirect()->route("home");
+        return redirect()->route("games");
     }
 
     /**
