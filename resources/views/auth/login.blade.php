@@ -1,45 +1,45 @@
 <x-base-layout>
-    <!-- Session Status -->
     <x-auth-session-status :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}" class="loginForm">
-        @csrf
+    <h1>Inloggen</h1>
+    <div class="backgroundColor">
 
-        <!-- Email Address -->
-        <div class="emailInput">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" />
-        </div>
+        <form method="POST" action="{{ route('login') }}" class="loginForm">
+            @csrf
 
-        <!-- Password -->
-        <div class="passwordInput">
-            <x-input-label for="password" :value="__('Wachtwoord')" />
+            <div class="formGroup">
+                <x-input-label for="email" :value="__('Email')" />
+                <x-text-input id="email" class="input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input-error :messages="$errors->get('email')" />
+            </div>
 
-            <x-text-input id="password" class="input"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <div class="formGroup">
+                <x-input-label for="password" :value="__('Wachtwoord')" />
 
-            <x-input-error :messages="$errors->get('password')" />
-        </div>
+                <x-text-input id="password" class="input"
+                                type="password"
+                                name="password"
+                                required autocomplete="current-password" />
 
-        <div class="formLinks">
-            <x-primary-button class="formButton">
-                {{ __('Login') }}
-            </x-primary-button>
+                <x-input-error :messages="$errors->get('password')" />
+            </div>
 
-            @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="forgotPassword">
+            <div class="formLinks">
+                <x-primary-button class="formButton">
+                    {{ __('Inloggen') }}
+                </x-primary-button>
+
+                @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}" class="forgotPassword">
                     {{ __('Wachtwoord vergeten?') }}
+                    </a>
+                @endif
+                <span> | </span>
+
+                <a href="{{ route('register') }}" class="registerAccount">
+                    {{ __('Nog geen account?') }}
                 </a>
-            @endif
-            <span> | </span>
-
-            <a href="{{ route('register') }}" class="registerAccount">
-                {{ __('Nog geen account?') }}
-            </a>
-        </div>
-
-    </form>
+            </div>
+        </form>
+    </div>
 </x-base-layout>
