@@ -4,13 +4,13 @@
     <div class="backgroundColor">
     
         <div class="formText">
-            {{ __('Bevestig je wachtwoord') }}
+            {{ __('Bevestig je wachtwoord.') }}
         </div>
 
         <form method="POST" action="{{ route('password.confirm') }}">
             @csrf
 
-            <div class="formText">
+            <div class="formGroup">
                 <x-input-label for="password" :value="__('Wachtwoord')" />
 
                 <x-text-input id="password"
