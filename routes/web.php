@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/teams', [DashboardController::class, 'teams'])->name('dashboard.teams');
         Route::get('/dashboard/tournaments', [TournamentController::class, 'tournaments'])->name('dashboard.tournaments');
         Route::get('/dashboard/tournamentDetails/{id}', [TournamentController::class, 'show'])->name('dashboard.tournamentDetails');
+        Route::post('/dashboard/tournaments/{tournament}/generate', [TournamentController::class, 'generate'])->name('tournament.generate');
         Route::delete('/tournaments/{tournament}/teams/{team}', [TournamentController::class, 'removeTeam'])->name('tournament.teams.remove');
     });
 });

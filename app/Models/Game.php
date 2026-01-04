@@ -17,6 +17,7 @@ class Game extends Model
         'team_2_id',
         'score_team_1',
         'score_team_2',
+        'tournament_id'
     ];
 
     protected $casts = [

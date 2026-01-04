@@ -4,6 +4,7 @@
 
         <table class="teamsTable">
             <thead>
+                <th>Tournament</th>
                 <th>Locatie</th>
                 <th>Tijd</th>
                 <th>Datum</th>
@@ -14,6 +15,7 @@
             <tbody>
                 @foreach ($games as $game)
                 <tr>
+                    <td>{{ $game->tournament()->get()[0]->name }}</td>
                     <td>{{ $game->tournament()->get()[0]->location }}</td>
                     <td>{{ $game->start->format('H:i') }}</td>
                     <td>{{ $game->start->format('j-n-Y') }}</td>

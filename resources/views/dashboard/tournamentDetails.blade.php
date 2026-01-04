@@ -14,7 +14,10 @@
                 <h2>Capaciteit</h2>
                 <p>{{ $tournament->capacity }}</p>
 
-                <input type="submit" value="Tournament genereren">
+                <form action="{{ route('tournament.generate', [$tournament->id]) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="Tournament genereren">
+                </form>
             </div>
 
             <div class="gridItem">
