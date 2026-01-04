@@ -53,9 +53,15 @@ class GameController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Game $game)
     {
-        //
+        $validated = $request->validate([
+            'score_team_1' => ['required', 'integer', 'min:0'],
+            'score_team_2' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $game->update($validated);
+        return back();
     }
 
     /**

@@ -19,7 +19,7 @@
                         <td>
                             <form action="{{ route('team.signup', [$team->id, $tournament->id]) }}" method="POST">
                                 @csrf
-                                <input type="submit" class="enroll" value="Inschrijven"/>
+                                <input type="submit" class="enroll" value="Inschrijven">
                             </form>
                         </td>
                     </tr>

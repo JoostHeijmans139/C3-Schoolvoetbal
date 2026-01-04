@@ -190,6 +190,31 @@ th button {
     margin-top: 10px;
 }
 
+/* === Referee part (adding score) === */
+.scoreTable {
+    width: 250px;
+    padding: 0px 5px;
+}
+
+.scoreInput {
+    width: 50px;
+    text-align: center;
+}
+
+.scoreSubmit {
+    color: var(--color-black);
+    width: 100px;
+
+    &:hover {
+        color: var(--main-blue);
+        cursor: pointer;
+    }
+}
+
+.scoreDivider {
+    margin-right: 15px;
+}
+
 /* ===================== Adminpanel ===================== */
 .adminButtons, .tournamentButton{
     background-color: var(--color-white);
