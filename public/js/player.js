@@ -1,7 +1,7 @@
 const fields = [
     ["", "-", "button"],
     ["name", "Naam", "text"],
-    ["shirt_number", "rugnummer", "number"],
+    ["shirt_number", "Rugnummer", "number"],
 ]
 
 var playerCount = 0;

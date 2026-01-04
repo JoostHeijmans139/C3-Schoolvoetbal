@@ -27,11 +27,11 @@
         @error("players.*")
         <div>{{ $message }}</div>
         @enderror
-        <table>
+        <table class="teamTable">
             <thead>
                 <th><button id="itemButton" onclick="NewItem()" type="button">+</button></th>
                 <th>Naam</th>
-                <th>rugnummer</th>
+                <th>Rugnummer</th>
             </thead>
             <tbody id="players" data-count="{{$players->count()}}">
                 @for ($i = 0; $i < $players->count(); $i++)
@@ -39,12 +39,12 @@
                         <input type="hidden" name="players[{{$i}}][id]" value="{{$players[$i]->id}}">
                         <td><input class="player-input" type="button" onclick="DeleteThis(event)" value="-"></td>
                         <td><input class="player-input" type="text" name="players[{{$i}}][name]" id="name" value="{{ $players[$i]->name }}" required></td>
-                        <td><input class="player-input" type="number" name="players[{{$i}}][shirt_number]" id="shirt_number" value="{{ $players[$i]->shirt_number }}" required></td>
+                        <td class="number"><input class="player-input" type="number" name="players[{{$i}}][shirt_number]" id="shirt_number" value="{{ $players[$i]->shirt_number }}" required></td>
                     </tr>
                 @endfor
             </tbody>
         </table>
-        <input type="submit" value="Team aanpassen">
+        <input type="submit" value="Aanpassen">
     </form>
 
     <script src="{{ asset('js/player.js') }}" onload="SetPlayercount()"></script>

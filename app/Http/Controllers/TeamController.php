@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use App\Models\Team;
+use Auth;
 use Illuminate\Http\Request;
 
 
@@ -14,7 +15,10 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $team = Auth::user()->team;
+        $players = $team?->players;
+
+        return view('teams.index', compact('team', 'players'));
     }
 
     /**
@@ -42,7 +46,7 @@ class TeamController extends Controller
         $team = new Team();
         $team->name = $request->teamname;
         $team->location = $request->location;
-        $team->user_id = 1;
+        $team->user_id = Auth::id();
 
         $team->save();
 
@@ -62,7 +66,10 @@ class TeamController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $team = Team::findOrFail($id);
+        $players = $team->players()->get();
+
+        return view('teams.index', compact('team', 'players'));
     }
 
     /**
@@ -103,23 +110,26 @@ class TeamController extends Controller
 
         $playersToDelete = $players->whereNotIn('id', $playerIds);
 
-        foreach($playersToDelete as $deletedPlayer){
+        foreach ($playersToDelete as $deletedPlayer) {
             $deletedPlayer->delete();
         }
 
-        foreach($request->players as $player){
-            if(isset($player['id'])){
+        foreach ($request->players as $player) {
+            if (isset($player['id'])) {
                 $playerOld = Player::findOrFail($player['id']);
                 $playerOld->name = $player['name'];
                 $playerOld->shirt_number = $player['shirt_number'];
                 $playerOld->save();
             }
-            else{
+            else {
                 $player['team_id'] = $team->id;
                 Player::insert($player);
             }
         }
 
+        if (Auth::user()->role == "user") {
+            return redirect()->route("team.index");
+        }
         return redirect()->route("dashboard.teams");
     }
 

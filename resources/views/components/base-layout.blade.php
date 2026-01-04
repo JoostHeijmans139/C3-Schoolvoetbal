@@ -18,6 +18,19 @@
             <a href="/"><img src="{{ asset('img/logo.png') }}" class="logo"></a>
         </div>
         <nav>
+            @auth
+
+                @if (Auth::user()->team)
+                    <a href="{{ route('team.index') }}" class="navText">Teambeheer</a>
+                @elseif (Auth::user()->role == "user")
+                    <a href="{{ route('team.create') }}" class="navText">Team aanmaken</a>
+                @endif
+
+                @if (Auth::user()->role == "admin")
+                    <a href="{{ route('dashboard.teams') }}" class="navText">Dashboard</a>
+                @endif
+            @endauth
+
             <div class="loginButton">
                 @auth
                     <form method="POST" action="{{ route('logout') }}">
@@ -28,10 +41,6 @@
                             {{ __('Uitloggen') }}
                         </x-dropdown-link>
                     </form>
-
-                    @if (Auth::user()->role == "admin")
-                        <a href="{{ route('dashboard.teams') }}">Dashboard</a>
-                    @endif
                 @endauth
 
                 @guest

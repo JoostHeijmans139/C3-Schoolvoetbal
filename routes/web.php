@@ -17,6 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/team/index', [TeamController::class, 'index'])->name('team.index');
+    Route::get('/teams/{id}', [TeamController::class, 'show'])->name('teams.show');
     Route::get('/team/create', [TeamController::class, 'create'])->name('team.create');
     Route::post('/team/create', [TeamController::class, 'store'])->name('team.store');
     Route::get('/team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');

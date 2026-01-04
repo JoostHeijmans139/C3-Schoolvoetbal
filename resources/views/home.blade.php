@@ -1,8 +1,6 @@
 <x-base-layout>
     <h1>Aankomende wedstrijden</h1>
     <div class="backgroundColor">
-        <a href="{{ route('team.create') }}" class="adminButtons">Eigen team aanmaken</a>
-
         <table class="teamsTable">
             <thead>
                 <th>Locatie</th>

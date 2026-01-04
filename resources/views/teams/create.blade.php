@@ -29,7 +29,7 @@
             <thead>
                 <th><button id="itemButton" onclick="NewItem()" type="button">+</button></th>
                 <th>Naam</th>
-                <th>rugnummer</th>
+                <th>Rugnummer</th>
             </thead>
             <tbody id="players">
             </tbody>
