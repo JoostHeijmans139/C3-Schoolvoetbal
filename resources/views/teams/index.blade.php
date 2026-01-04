@@ -19,8 +19,24 @@
         </table>
 
         <a href="{{ route('team.edit', $team->id) }}" class="formButton">Team bewerken</a>
+        <a href="{{ route('team.tournamentList', $team->id) }}" class="formButton">Tournament inschrijven</a>
 
-
-
+        <h2 class="teamTournaments">Ingeschreven tournamenten</h2>
+        <table class="teamTable">
+            <thead>
+                <th>Tournament</th>
+                <th>Datum</th>
+                <th>Locatie</th>
+            </thead>
+            <tbody>
+                @foreach ($tournaments as $tournament)
+                    <tr>
+                        <td>{{ $tournament->name }}</td>
+                        <td>{{ $tournament->start_date->format('j-n-Y') }}</td>
+                        <td>{{ $tournament->location }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </x-base-layout>

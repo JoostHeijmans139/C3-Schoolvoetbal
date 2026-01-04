@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use App\Models\Team;
+use App\Models\Tournament;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,10 @@ class TeamController extends Controller
     public function index()
     {
         $team = Auth::user()->team;
-        $players = $team?->players;
+        $players = $team->players;
+        $tournaments = $team->tournaments;
 
-        return view('teams.index', compact('team', 'players'));
+        return view('teams.index', compact('team', 'players', 'tournaments'));
     }
 
     /**
@@ -139,5 +141,24 @@ class TeamController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function showTournamentList(Team $team)
+    {
+        $available = Tournament::whereDoesntHave('teams', function ($query) use ($team) {
+            $query->where('teams.id', $team->id);
+        })
+        ->where(function ($query) {
+            $query->whereRaw('capacity > (SELECT COUNT(*) FROM tournamentteams WHERE tournamentteams.tournament_id = tournaments.id)');
+        })->get();
+
+        return view('teams.tournamentList', compact('available', 'team'));
+    }
+
+    public function signUpTournament(Team $team, Tournament $tournament)
+    {
+        $team->tournaments()->attach($tournament->id);
+
+        return redirect()->route('team.index');
     }
 }

@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/teams/{id}', [TeamController::class, 'show'])->name('teams.show');
     Route::get('/team/create', [TeamController::class, 'create'])->name('team.create');
     Route::post('/team/create', [TeamController::class, 'store'])->name('team.store');
+    Route::get('/teams/{team}/tournaments', [TeamController::class, 'showTournamentList'])->name('team.tournamentList');
+    Route::post('/teams/{team}/tournaments/{tournament}/signup', [TeamController::class, 'signUpTournament'])->name('team.signup');
     Route::get('/team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
     Route::put('/team/edit/{id}', [TeamController::class, 'update'])->name('team.update');
 
