@@ -12,7 +12,7 @@
             <tbody>
                 @foreach ($games as $game)
                     <tr>
-                        <td></td>
+                        <td>{{ $game->tournament()->get()[0]->location }}</td>
                         <td>{{ $game->start->format('H:i') }}</td>
                         <td>{{ $game->start->format('j-n-Y') }}</td>
                         <td>{{ $game->team1()->get()[0]->name }}</td>
