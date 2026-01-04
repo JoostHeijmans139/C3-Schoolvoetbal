@@ -133,7 +133,7 @@ th button {
     padding-bottom: 2vh;
 }
 
-.submit, .formButton {
+input[type="submit"], .formButton {
     background-color: var(--main-blue);;
     border: 1px solid var(--color-black);
     color: var(--color-white);
@@ -215,6 +215,26 @@ th button {
     margin-right: 15px;
 }
 
+
+/* ===================== Team overview/ edit ===================== */
+.teamTable {
+    width: 50%;
+}
+
+.teamName, .teamTournaments {
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.teamTournaments {
+    margin-top: 50px;
+}
+
+.number {
+    width: 200px;
+}
+
+
 /* ===================== Adminpanel ===================== */
 .adminButtons, .tournamentButton{
     background-color: var(--color-white);
@@ -264,6 +284,7 @@ th button {
     background-color: var(--color-white) !important;
     border: none !important;
     color: var(--color-black) !important;
+    padding: 0px !important;
 
     &:hover {
         text-decoration: underline;
@@ -279,22 +300,4 @@ th button {
 .numberInput {
     text-align: center;
     width: 150px;
-}
-
-/* ===================== Team overview/ edit ===================== */
-.teamTable {
-    width: 50%;
-}
-
-.teamName, .teamTournaments {
-    font-weight: 300;
-    margin-bottom: 20px;
-}
-
-.teamTournaments {
-    margin-top: 50px;
-}
-
-.number {
-    width: 200px;
 }
