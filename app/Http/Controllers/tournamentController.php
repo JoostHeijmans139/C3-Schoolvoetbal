@@ -34,7 +34,7 @@ class TournamentController extends Controller
 
         Tournament::create($request->all());
 
-        return redirect()->route('dashboard.tournament');
+        return redirect()->route('dashboard.tournaments');
     }
 
     public function show(string $id)
@@ -52,7 +52,7 @@ class TournamentController extends Controller
     }
 
 
-    
+
     public function generate(Tournament $tournament)
     {
         DB::transaction(function () use ($tournament)
