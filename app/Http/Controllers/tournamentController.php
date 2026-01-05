@@ -27,7 +27,7 @@ class TournamentController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string',
-            'capacity' => 'required|integer|min:2|max:50',
+            'capacity' => 'required|integer|min:4|max:50',
             'location' => 'required|string',
             'start_date' => 'required|date|after:now'
         ]);

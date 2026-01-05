@@ -25,7 +25,7 @@
 
             <div class="formGroup">
                 <label>Capaciteit: </label>
-                <input type="number" name="capacity" min="2" max="50" class="numberInput">
+                <input type="number" name="capacity" min="4" max="50" class="numberInput">
             </div>
 
             <div class="formGroup">
