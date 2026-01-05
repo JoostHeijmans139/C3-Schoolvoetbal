@@ -20,7 +20,7 @@
 
             <div class="formGroup">
                 <label>Locatie: </label>
-                <input type="text" name="location"class="textInput">
+                <input type="text" name="location" class="textInput">
             </div>
 
             <div class="formGroup">

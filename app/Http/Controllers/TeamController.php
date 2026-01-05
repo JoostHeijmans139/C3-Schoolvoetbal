@@ -148,6 +148,7 @@ class TeamController extends Controller
         $available = Tournament::whereDoesntHave('teams', function ($query) use ($team) {
             $query->where('teams.id', $team->id);
         })
+        ->where("is_generated", false)
         ->where(function ($query) {
             $query->whereRaw('capacity > (SELECT COUNT(*) FROM tournamentteams WHERE tournamentteams.tournament_id = tournaments.id)');
         })->get();

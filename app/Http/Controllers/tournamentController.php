@@ -14,7 +14,7 @@ class TournamentController extends Controller
 {
     public function tournaments()
     {
-        $tournaments = Tournament::all();
+        $tournaments = Tournament::where("is_generated", false)->get();
         return view ('dashboard.tournaments')->with('tournaments', $tournaments);
     }
 
@@ -55,6 +55,21 @@ class TournamentController extends Controller
 
     public function generate(Tournament $tournament)
     {
+        if ($tournament->is_generated) {
+            return back();
+        }
+
+        $teams = $tournament->teams->values();
+        $teamCount = $teams->count();
+
+        if ($teamCount < 4) {
+            return back();
+        }
+
+        if ($teamCount > $tournament->capacity) {
+            return back();
+        }
+
         DB::transaction(function () use ($tournament)
         {
             $teams = $tournament->teams->values();
@@ -64,8 +79,6 @@ class TournamentController extends Controller
             $nonParticipatingTeams = [];
             if ($teamCount % 2 !== 0)
             {
-                $teams->push(null);
-                $teamCount++;
                 $hasUnevenTeams = true;
             }
 
@@ -75,8 +88,6 @@ class TournamentController extends Controller
             {
                 for ($j = $i + 1; $j < $teamCount; $j++)
                 {
-                    if ($teams[$i] == null || $teams[$j] == null) continue;
-
                     $availablePairs[] = [$teams[$i], $teams[$j]];
                 }
             }
@@ -126,7 +137,7 @@ class TournamentController extends Controller
                 }
             }
 
-            if (count($nonParticipatingTeams) == 2)
+            if ($hasUnevenTeams)
             {
                 $lastDay = $day;
                 $matchesLastDay = $matchesToday;
@@ -143,8 +154,8 @@ class TournamentController extends Controller
                 $start = (new DateTime($tournament->start_date))
                     ->modify("+{$lastDay} days")
                     ->setTime(
-                intval(substr($timeSlots[$slotIndex], 0, 2)),
-                intval(substr($timeSlots[$slotIndex], 3, 2))
+                    intval(substr($timeSlots[$slotIndex], 0, 2)),
+                    intval(substr($timeSlots[$slotIndex], 3, 2))
                     );
 
                 Game::create([
@@ -155,6 +166,8 @@ class TournamentController extends Controller
                     'tournament_id' => $tournament->id,
                 ]);
             }
+
+            $tournament->update(['is_generated' => true]);
         });
 
         return redirect()->route('games');

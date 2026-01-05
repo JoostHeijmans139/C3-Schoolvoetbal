@@ -16,6 +16,7 @@ class Tournament extends Model
         'capacity',
         'location',
         'start_date',
+        'is_generated'
     ];
 
     protected function casts(): array
