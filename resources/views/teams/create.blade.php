@@ -1,7 +1,8 @@
 <x-base-layout>
     <h1>Team aanmaken</h1>
-    <form class="createTeamForm" action="{{ route('team.store') }}" method="POST">
+    <form class="backgroundColor" action="{{ route('team.store') }}" method="POST">
         @csrf
+
         @error("teamname")
         <div>{{ $message }}</div>
         @enderror
@@ -9,6 +10,7 @@
             <label for="name">Teamnaam</label>
             <input type="text" id="teamname" name="teamname" value="{{ old('teamname') }}">
         </div>
+
         @error("location")
         <div>{{ $message }}</div>
         @enderror
@@ -16,6 +18,7 @@
             <label for="location">Locatie</label>
             <input type="text" id="location" name="location" value="{{ old('location') }}">
         </div>
+
         @error("players")
         <div>{{ $message }}</div>
         @enderror
@@ -26,7 +29,7 @@
             <thead>
                 <th><button id="itemButton" onclick="NewItem()" type="button">+</button></th>
                 <th>Naam</th>
-                <th>rugnummer</th>
+                <th>Rugnummer</th>
             </thead>
             <tbody id="players">
             </tbody>

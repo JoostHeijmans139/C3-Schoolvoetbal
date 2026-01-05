@@ -1,28 +1,54 @@
 <x-base-layout>
-    <div class="homepage">
-            <table>
-                <thead>
-                    <th>naam</th>
-                    <th>capaciteit</th>
-                    <th>locatie</th>
-                    <th>start datum</th>
-                </thead>
-                <tbody>
-                    @foreach ($tournaments as $tournament)
-                        <tr>
-                            <td>{{ $tournament->name }}</td>
-                            <td>{{ $tournament->capacity }}</td>
-                            <td>{{ $tournament->location }}</td>
-                            <td>{{ $tournament->start_date->format('j-n-Y') }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+    <h1>Aankomende wedstrijden</h1>
+    <div class="backgroundColor">
 
-        <div class="options">
-            <a href="{{ route('team.create') }}">Team Aanmaken</a>
-            <p>Meedoen aan Wedstrijd</p>
-            <a href="{{ route('createTournament') }}">Toernooi Aanmaken</a>
-        </div>
+        <table class="teamsTable">
+            <thead>
+                <th>Tournament</th>
+                <th>Locatie</th>
+                <th>Tijd</th>
+                <th>Datum</th>
+                <th>Team 1</th>
+                <th>Team 2</th>
+                <th>Score</th>
+            </thead>
+            <tbody>
+                @foreach ($games as $game)
+                <tr>
+                    <td>{{ $game->tournament()->get()[0]->name }}</td>
+                    <td>{{ $game->tournament()->get()[0]->location }}</td>
+                    <td>{{ $game->start->format('H:i') }}</td>
+                    <td>{{ $game->start->format('j-n-Y') }}</td>
+                    <td>{{ $game->team1()->get()[0]->name }}</td>
+                    <td>{{ $game->team2()->get()[0]->name }}</td>
+
+                @if ($game->score_team_1 == null && $game->score_team_2 == null)
+                    @guest
+                        <td> - </td>
+                    @endguest
+
+                    @auth
+                    @if (auth()->user()->role == 'referee')
+                    <td class="scoreTable">
+                        <form action=" {{ route('games.update', $game->id) }}" method="POST">
+                            @csrf
+                            @method('PUT') 
+                            <input type="number" class="scoreInput" min="0" name="score_team_1" placeholder="0">
+                            <span class="scoreDivider">-</span>
+                            <input type="number" class="scoreInput" min="0" name="score_team_2" placeholder="0">
+                            <input type="submit" class="scoreSubmit" value="Toevoegen">
+                        </form>
+                    </td>
+                    @else
+                    <td>-</td>
+                    @endif
+                    @endauth
+                @else
+                    <td>{{ $game->score_team_1 }} - {{ $game->score_team_2 }}</td>
+                @endif
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </x-base-layout>
